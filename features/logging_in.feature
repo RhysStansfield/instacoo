@@ -9,4 +9,13 @@ Feature: Signing up, signing in and logging out
     Then I should have a user account
 
   Scenario: Sigining in
-    Given I 
+    Given a user has signed up
+    And I visit the home page
+    When I press "Sign In"
+    And I enter my log in details 
+    Then I should see "Signed in successfully."
+
+  Scenario: Logging out
+    Given I am signed in
+    When I press "Log Out"
+    Then I should see "Signed out successfully."

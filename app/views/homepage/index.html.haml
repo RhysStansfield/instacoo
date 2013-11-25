@@ -19,5 +19,6 @@
     %a
       = link_to 'Log Out', destroy_user_session_path, method: :delete
 
-%body
-  %section{class: 'main'}
+%section{class: 'main'}
+
+  = render 'pictures'
