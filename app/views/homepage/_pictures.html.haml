@@ -1,3 +1,7 @@
 - @photos.each do |photo|
   %section{ class: 'picture' }
-    %img{ src: photo.image.url }
+    %img{ src: photo.image.url(:medium) } 
+    %p 
+      = photo.description
+      = photo.user.email if photo.user
+      = link_to 'Edit', edit_photo_path(photo) if photo.user == current_user

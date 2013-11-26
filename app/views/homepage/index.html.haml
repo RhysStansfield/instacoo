@@ -1,23 +1,25 @@
-%header
-  %nav
-    %a
-      %i
-    %a
-      = link_to 'Sign Up', new_user_registration_path
-    %a
-      = link_to 'Sign In', new_user_session_path
-    %a
-      Instacoo
-    %a
-      Username
-    %a
-      View Profile
-    %a
-      Edit Profile
-    %a
-      Badges
-    %a
-      = link_to 'Log Out', destroy_user_session_path, method: :delete
+/ %header
+/   %nav
+/     %a
+/       %i
+/     %a
+/       = link_to 'Sign Up', new_user_registration_path
+/     %a
+/       = link_to 'Sign In', new_user_session_path
+/     %a
+/       = link_to 'Upload', new_photo_path
+/     %a
+/       Instacoo
+/     %a
+/       Username
+/     %a
+/       View Profile
+/     %a
+/       Edit Profile
+/     %a
+/       Badges
+/     %a
+/       = link_to 'Log Out', destroy_user_session_path, method: :delete
 
 %section{class: 'main'}
 
