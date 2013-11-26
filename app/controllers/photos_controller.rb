@@ -1,17 +1,17 @@
 class PhotosController < ApplicationController
 
+  def index
+    @photos = Photo.all
+  end
+
   def new
     @photo = Photo.new
   end
 
   def create
-    @photo = Photo.new(params[:photo].permit(:photo))
-    if @photo.save
-      redirect_to '/'
-    else
-      render 'new'
-      flash[:error] = "THIS DIDN'T SAVE"
-    end
+    Photo.create(params[:photo].permit(:image))
+    flash[:notice] = 'Photo added'
+    redirect_to photos_path
   end
 
 end
