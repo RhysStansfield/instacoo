@@ -35,6 +35,8 @@ gem 'paperclip'
 
 gem 'websocket-rails'
 
+gem 'thin'
+
 gem 'twitter-bootstrap-rails',
     github: 'seyhunak/twitter-bootstrap-rails',
     branch: 'bootstrap3'

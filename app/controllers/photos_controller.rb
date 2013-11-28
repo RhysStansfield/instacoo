@@ -30,7 +30,8 @@ class PhotosController < ApplicationController
 
   def create
     @photo = current_user.photos.new(permitted_params)
-
+    WebsocketRails[:photos].trigger(:new_photo, 
+                  {description: @photo.description, image_url: @photo.image.url(:medium), tags: @photo.tags})
 
     if @photo.save
       flash[:notice] = 'Photo added'
