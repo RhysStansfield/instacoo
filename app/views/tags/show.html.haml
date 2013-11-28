@@ -1,0 +1,6 @@
+%h3
+  = @tag.name
+
+- @tag.photos.each do |photo|
+  %img{ src: photo.image.url(:medium), class: 'uploaded-pic' }
+  = all_tags(photo)

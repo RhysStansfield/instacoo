@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe PhotoController do
+describe PhotosController do
 
 end

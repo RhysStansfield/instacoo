@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'paperclip'
 
+gem 'websocket-rails'
+
 gem 'twitter-bootstrap-rails',
     github: 'seyhunak/twitter-bootstrap-rails',
     branch: 'bootstrap3'
@@ -49,6 +51,7 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'poltergeist'
+  gem 'shoulda-matchers'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

@@ -1,4 +1,11 @@
-- @photos.each do |photo|
-  %section{ class: 'picture' }
-    %img{ src: photo.image.url(:medium), class: 'uploaded-pic' }
-    
+.col-md-4
+  - @photos.each do |photo|
+    %section{ class: 'picture' }
+      %img{ src: photo.image.url(:medium), class: 'uploaded-pic' }
+      %p 
+        = photo.description
+        = photo.user.email if photo.user
+        = link_to 'Edit', edit_photo_path(photo) if photo.user == current_user
+        = link_to 'Delete', photo_path(photo), method: :delete
+        = all_tags(photo)
+      

@@ -16,20 +16,32 @@ class PhotosController < ApplicationController
 
   def update
     @photo = Photo.find params[:id]
-    @photo.update(params[:photo].permit(:title))
+    @photo.update(permitted_params)
 
     flash[:notice] = 'Photo updated'
     redirect_to '/'
   end
 
+  def destroy 
+    @photo = current_user.photos.find params[:id]
+    @photo.destroy
+    redirect_to '/'
+  end
+
   def create
-    @photo = current_user.photos.build(params[:photo].permit(:image, :description))
+    @photo = current_user.photos.new(permitted_params)
+
+
     if @photo.save
       flash[:notice] = 'Photo added'
       redirect_to photos_path
     else
       render 'new'
     end
+  end
+
+  def permitted_params
+    params[:photo].permit(:image, :description, :title, :tag_list) #, :tag_list)
   end
 
 end
