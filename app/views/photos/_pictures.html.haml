@@ -2,10 +2,12 @@
   - @photos.each do |photo|
     %section{ class: 'picture' }
       %img{ src: photo.image.url(:medium), class: 'uploaded-pic' }
-      %p 
+      %p
         = photo.description
+      %h3
         = photo.user.email if photo.user
         = link_to 'Edit', edit_photo_path(photo) if photo.user == current_user
         = link_to 'Delete', photo_path(photo), method: :delete
+      .tags
         = all_tags(photo)
       
